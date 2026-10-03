@@ -1,6 +1,6 @@
 import random
-from axelrod.action import Action
-from axelrod.strategy import Strategy
+from ..action import Action
+from ..strategy import Strategy
 
 class SchwobaSenGnitz(Strategy):
     """
