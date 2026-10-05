@@ -12,7 +12,7 @@ for s in axl.all_strategies:
 print(f"Starte das große Turnier mit {len(all_players)} Strategien...")
 
 # 1000 Runden, 1 Wiederholung. Keine Extrafunktionen, um den RAM zu schonen.
-tournament = axl.Tournament(players=all_players, turns=1000, repetitions=1)
+tournament = axl.Tournament(players=all_players, turns=200, repetitions=1)
 results = tournament.play(progress_bar=False)
 
 print("\n" + "="*50)
