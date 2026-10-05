@@ -29,7 +29,7 @@ class SchwobaSenGnitz(Player):
         self.raubtier_erwacht = False
         self.schutz_modus_aktiviert = False
 
-    def strategy(self, opponent: Strategy) -> Action:
+    def strategy(self, opponent: Player) -> Action:
         runde = len(self.history)
         if runde == 0:
             return Action.C
