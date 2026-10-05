@@ -1,19 +1,24 @@
 import axelrod as axl
 
-# 1. Das ist die magische Zeile: Sie liest ALLE im Framework existierenden Strategien ein!
-# Über 200 Stück, inklusive KIs, Klassikern und deiner neuen Strategie.
-all_players = [s() for s in axl.all_strategies]
+# 1. Sicherheitsfilter: Lädt nur die KIs und Strategien, die fehlerfrei starten
+all_players = []
+for s in axl.all_strategies:
+    try:
+        player_instance = s()
+        all_players.append(player_instance)
+    except Exception:
+        continue  # Überspringt fehlerhafte oder unvollständige Fremdstrategien
 
-print(f"Turnier wird vorbereitet mit {len(all_players)} Strategien...")
+print(f"Das große Haifischbecken wird vorbereitet mit {len(all_players)} Strategien...")
 
-# 2. Das riesige Turnier konfigurieren (1000 Runden)
-# Wir nutzen 2 Wiederholungen (repetitions=2), damit die GitHub-Server nicht zu lange rechnen
-tournament = axl.Tournament(players=all_players, turns=1000, repetitions=2)
+# 2. Rundenanzahl bleibt bei 1000, aber Wiederholungen (repetitions) auf 1 oder 2 setzen!
+# Das spart den Servern Stunden an Rechenzeit, liefert aber ein klares Ergebnis.
+tournament = axl.Tournament(players=all_players, turns=1000, repetitions=1)
 
-# 3. Das Turnier starten
+# 3. Turnier starten
 results = tournament.play()
 
-# 4. Die Top 20 im Terminal ausgeben
+# 4. Die Top 20 sauber ausgeben
 print("\n" + "="*50)
 print("     DAS OFFIZIELLE AXELROD HAIFISCHBECKEN (TOP 20)")
 print("="*50)
