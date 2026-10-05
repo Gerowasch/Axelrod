@@ -1,7 +1,7 @@
 name: Mein eigenes Axelrod Turnier
 
 on:
-  workflow_dispatch: # Das erlaubt es dir, den Startknopf selbst im Browser zu drücken!
+  workflow_dispatch:
 
 jobs:
   run-tournament:
@@ -15,10 +15,12 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Axelrod installieren
+      - name: System-Abhängigkeiten und Axelrod installieren
         run: |
-          pip install --upgrade pip
+          pip install --upgrade pip setuptools wheel
+          # Das sind die fehlenden Pakete, die die KIs zum Überleben brauchen:
+          pip install numpy scipy
           pip install -e .
 
       - name: Turnier starten
-        run: python turiertest.py
+        run: python turniertest.py # Oder hier den Namen deiner großen Datei eintragen!
