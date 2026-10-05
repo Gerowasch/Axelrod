@@ -21,4 +21,4 @@ jobs:
           pip install -e .
 
       - name: Turnier starten
-        run: python .py
+        run: python turiertest.py
