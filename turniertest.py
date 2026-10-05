@@ -5,10 +5,10 @@ from axelrod.strategies.schwoba_sen_gnitz import SchwobaSenGnitz
 players = [
     SchwobaSenGnitz(),
     axl.TitForTat(),
-    axl.Grim(),            # Das ist der Grudger
+    axl.Grudger(),            # Das ist der Grudger
     axl.Cooperator(),      # AllC
     axl.Defector(),        # AllD
-    axl.Altenator() if hasattr(axl, 'Altenator') else axl.Alternator(),
+    axl.Alternator() if hasattr(axl, 'Altenator') else axl.Alternator(),
     axl.Random()
 ]
 
