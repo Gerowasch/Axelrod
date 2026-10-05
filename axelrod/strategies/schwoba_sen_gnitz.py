@@ -1,8 +1,8 @@
 import random
-from ..action import Action
-from ._strategy import Strategy
+from axelrod.action import Action
+from axelrod.player import Player
 
-class SchwobaSenGnitz(Strategy):
+class SchwobaSenGnitz(Player):
     """
     Schwoba sen gnitz (Schwaben sind gerissen) - Python-Version 2026.
     Autor: Georg 'HackyHackberger' Schmidt (1985 / 2026)
