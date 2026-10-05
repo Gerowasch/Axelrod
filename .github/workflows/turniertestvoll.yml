@@ -1,4 +1,4 @@
-name: Mein eigenes Axelrod Turnier
+name: Axelrod Turnier hier geht die Post ab
 
 on:
   workflow_dispatch: # Das erlaubt es dir, den Startknopf selbst im Browser zu drücken!
