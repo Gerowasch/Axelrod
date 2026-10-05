@@ -1,6 +1,6 @@
 import random
 from ..action import Action
-from ..strategy import Strategy
+from ._strategy import Strategy
 
 class SchwobaSenGnitz(Strategy):
     """
