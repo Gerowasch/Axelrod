@@ -1,18 +1,19 @@
 import axelrod as axl
 
+# Wir erzeugen die Instanzen korrekt mit s()
+# Falls eine kaputte Fremd-Strategie dabei ist, filtert der try-except Block sie aus
 all_players = []
 for s in axl.all_strategies:
     try:
-        player_instance = s()
-        all_players.append(player_instance)
+        all_players.append(s())
     except Exception:
-        continue 
+        continue
 
-print(f"Das große Haifischbecken wird vorbereitet mit {len(all_players)} robusten Strategien...")
+print(f"Starte das große Turnier mit {len(all_players)} Strategien...")
 
-# 1000 Runden, 1 Wiederholung für schnellen Cloud-Durchlauf
+# 1000 Runden, 1 Wiederholung. Keine Extrafunktionen, um den RAM zu schonen.
 tournament = axl.Tournament(players=all_players, turns=1000, repetitions=1)
-results = tournament.play()
+results = tournament.play(progress_bar=False)
 
 print("\n" + "="*50)
 print("     DAS OFFIZIELLE AXELROD HAIFISCHBECKEN (TOP 20)")
