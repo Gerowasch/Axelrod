@@ -1,0 +1,24 @@
+name: Mein eigenes Axelrod Turnier
+
+on:
+  workflow_dispatch: # Das erlaubt es dir, den Startknopf selbst im Browser zu drücken!
+
+jobs:
+  run-tournament:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code ausleihen
+        uses: actions/checkout@v4
+
+      - name: Python vorbereiten
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Axelrod installieren
+        run: |
+          pip install --upgrade pip
+          pip install -e .
+
+      - name: Turnier starten
+        run: python turiertestvoll.py
