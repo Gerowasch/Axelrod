@@ -22,6 +22,10 @@ class SchwobaSenGnitz(Player):
         "inspects_source": False,
         "manipulates_state": False,
         "manipulates_history": False,
+        "uses_length": False,
+        "uses_game": False,
+        "uses_tournament": False,
+        "uses_clones": False,
     }
 
     def __init__(self) -> None:
